@@ -3,13 +3,12 @@ import QrCode from 'App/Models/QrCode'
 
 export default class QrCodeController {
 
-  public async index({params}:  HttpContextContract) {
-    return [
-      {
-        Teste: "Teste",
-        params: params.neno
-      }
-    ]
+  public async index({ params }:  HttpContextContract) {
+
+    const qrCode = await QrCode.query()
+    .from('qr_codes')
+    .where('id', params.neno)
+    return qrCode
   };
 
   public async create({ request }: HttpContextContract) {
@@ -21,6 +20,6 @@ export default class QrCodeController {
       award_already_given: data.award_already_given
     })
 
-    return qrCode
+    return qrCode.toJSON()
   }
 }
