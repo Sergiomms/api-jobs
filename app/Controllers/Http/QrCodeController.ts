@@ -8,6 +8,8 @@ export default class QrCodeController {
     const qrCode = await QrCode.query()
     .from('qr_codes')
     .where('id', params.neno)
+
+    console.log(qrCode)
     return qrCode
   };
 
