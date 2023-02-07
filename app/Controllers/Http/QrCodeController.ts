@@ -10,6 +10,7 @@ export default class QrCodeController {
     .where('id', params.neno)
 
     console.log(qrCode)
+    console.log(qrCode)
     return qrCode
   };
 
